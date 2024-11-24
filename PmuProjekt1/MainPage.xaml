@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PmuProjekt1.MainPage">
+
+    <StackLayout Padding="20">
+       
+        <Label Text="Odaberite način rada:" FontSize="20" HorizontalOptions="Center" />
+        <Picker x:Name="ModePicker" SelectedIndexChanged="OnModeChanged">
+            <Picker.Items>
+                <x:String>Magnetska Sila na Vodiču</x:String>
+                <x:String>Izračun Električne Energije</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <StackLayout x:Name="MagSilaLayout" IsVisible="False">
+            <Label Text="Unesite vrijednosti za magnetsku silu:" FontSize="18" HorizontalOptions="Center" />
+
+            <Entry x:Name="Duljina" Placeholder="Duljina vodiča (m)" Keyboard="Numeric" />
+            <Entry x:Name="Struja" Placeholder="Struja (A)" Keyboard="Numeric" />
+            <Entry x:Name="Polje" Placeholder="Magnetsko polje (T)" Keyboard="Numeric" />
+            <Entry x:Name="Kut" Placeholder="Kut (°)" Keyboard="Numeric" />
+
+            <Button Text="Izračunaj" Clicked="OnCalculateSilaClicked" />
+
+            <Label x:Name="MagSilaRezultat" FontSize="18" TextColor="Green" HorizontalOptions="Center" />
+        </StackLayout>
+
+        
+        <StackLayout x:Name="ElEnergijaLayout" IsVisible="False">
+            <Label Text="Unesite vrijednosti za električnu energiju:" FontSize="18" HorizontalOptions="Center" />
+
+            <Entry x:Name="SnagaEntry" Placeholder="Snaga uređaja (W)" Keyboard="Numeric" />
+            <Entry x:Name="VrijemeEntry" Placeholder="Vrijeme korištenja (h)" Keyboard="Numeric" />
+
+            <Button Text="Izračunaj" Clicked="OnCalculateEnergijaClicked" />
+
+            <Label x:Name="EnergijaRezultat" FontSize="18" TextColor="Green" HorizontalOptions="Center" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
